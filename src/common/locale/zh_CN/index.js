@@ -7,7 +7,8 @@ export default {
     strip: "条",
   },
   login: {
-    userLogin: "测试页",
+    title: "PilotAI Web Management",
+    userLogin: "用户登录",
     inputUserName: "请输入用户名",
     inputPassWord: "请输入密码",
     remeberPass: "记住密码",

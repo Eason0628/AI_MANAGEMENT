@@ -5,13 +5,25 @@ export default [
         response: (options) => {
             console.log("mock收到请求：", options.body);
             const { username, password } = options.body;
-            if (username === "admin" && password === "admin123123") {
+            if (username === "admin" && password === "123456") {
                 return {
-                    code: 200,
-                    data: {
-                        token: "mock-token-123456",
-                    },
-                    message: "success",
+                    "success": true,
+                    "data": {
+                        "access_token": "pilotai_access_xxx",
+                        "expires_in": 7200,
+                        "user": {
+                            "user_id": "user_001",
+                            "username": "lisi",
+                            "display_name": "李四",
+                            "org_unit_id": "team_a1",
+                            "managed_org_unit_id": null
+                        },
+                        "tenant": {
+                            "tenant_id": "tenant_acme",
+                            "tenant_name": "ACME Demo"
+                        },
+                        "roles": ["USER"]
+                    }
                 };
             }
 

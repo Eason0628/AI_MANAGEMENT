@@ -7,6 +7,7 @@ export default {
     strip: "Items",
   },
   login: {
+    title: "PilotAI Web Management",
     userLogin: "Login",
     inputUserName: "Please enter a username",
     inputPassWord: "Please enter a password",

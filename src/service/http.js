@@ -43,6 +43,7 @@ service.interceptors.response.use(
     (response) => {
         endLoading();
         if (response.headers[TOKEN_KEY]) store.commit("user/setToken", response.headers[TOKEN_KEY]);
+        console.log('',JSON.stringify(response));
         return response.data;
     },
     (error) => {
