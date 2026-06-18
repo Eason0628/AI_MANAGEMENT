@@ -77,8 +77,7 @@ export default {
                     // else router.push("/");
                     // sessionStorage.removeItem("ROUTES");
                 });
-            })
-                .catch(() => { });
+            }).catch(() => { });
         };
 
         const getCookie = () => {
