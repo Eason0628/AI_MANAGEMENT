@@ -16,5 +16,10 @@ export default {
     inputUserNameCheck: "Please enter the correct username",
     inputPassWordCheck: "Please enter the correct password",
   },
-
+  menu: {
+    publicLibrary: "Public Library Management",
+    toolManagement: "Tool Management",
+    modelConfiguration: "Model Configuration",
+    empAccounts: "Employee Accounts",
+  }
 };

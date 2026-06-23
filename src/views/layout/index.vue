@@ -2,8 +2,8 @@
     <a-layout>
         <Header />
         <a-layout>
-            <!-- <Sider />
-            <Content /> -->
+            <Sider />
+            <Content />
         </a-layout>
     </a-layout>
 </template>

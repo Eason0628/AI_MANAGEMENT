@@ -42,6 +42,7 @@ import { useI18n } from "vue-i18n";
 import { Icon } from "@/common/icons"
 import { encrypt, decrypt } from "@/service/utils/aes";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
     name: "Login",
@@ -52,6 +53,7 @@ export default {
         const { t } = useI18n();
         const formRef = ref();
         const router = useRouter();
+        const store = useStore()
 
         let state = reactive({
             imgSrc: "/images/login_logo.png",
@@ -72,10 +74,13 @@ export default {
                     if (state.rememberMe)
                         setCookit(state.user.username, state.user.password, 7);
                     else setCookit("", "", -1);
-                    // if (router.currentRoute.value.query.redirect)
-                    //     router.push(router.currentRoute.value.query.redirect);
-                    // else router.push("/");
-                    // sessionStorage.removeItem("ROUTES");
+                    if (res.success) store.commit("user/setToken", res.data.access_token);
+                    let token = store.getters["user/token"];
+                    console.log('token', token);
+                    if (router.currentRoute.value.query.redirect)
+                        router.push(router.currentRoute.value.query.redirect);
+                    else router.push("/");
+                    sessionStorage.removeItem("ROUTES");
                 });
             }).catch(() => { });
         };

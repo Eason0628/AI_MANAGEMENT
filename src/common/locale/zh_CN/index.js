@@ -16,4 +16,10 @@ export default {
     inputUserNameCheck: "请输入正确的用户名",
     inputPassWordCheck: "请输入正确的密码",
   },
+  menu: {
+    publicLibrary: "公共库管理",
+    toolManagement: "工具管理",
+    modelConfiguration: "模型配置",
+    empAccounts: "员工账号",
+  }
 };

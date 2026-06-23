@@ -42,8 +42,8 @@ service.interceptors.request.use(
 service.interceptors.response.use(
     (response) => {
         endLoading();
-        if (response.headers[TOKEN_KEY]) store.commit("user/setToken", response.headers[TOKEN_KEY]);
-        console.log('',JSON.stringify(response));
+        // todo: 联调待定是否返回相应响应头
+        // if (response.headers[TOKEN_KEY]) store.commit("user/setToken", response.headers[TOKEN_KEY]);
         return response.data;
     },
     (error) => {
