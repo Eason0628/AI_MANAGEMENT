@@ -39,12 +39,6 @@ export function tree2list(tree) {
     let data = [];
     while (tree.length) {
         let { children, ...item } = tree.pop();
-        if (item.menuType === 4) continue;
-        else if (item.menuType === 2) {
-            permissions.push(item.menuUrl);
-            continue;
-        }
-
         let obj = {
             path: item.menuUrl,
             name: item.menuName,
@@ -54,12 +48,27 @@ export function tree2list(tree) {
             menuId: item.menuId,
             menuParentId: item.menuParentId,
         };
-        if (item.menuWinArgs) {
-            obj.meta.taskWorkFlowId = item.menuWinArgs.split("&")?.[0].split("=")?.[1];
-            obj.meta.diagTitle = item.menuWinArgs.split("&")?.[1].split("=")?.[1];
-        }
         data.push(obj);
         if (children) for (let i = children.length - 1; i >= 0; i--) tree.push(children[i]);
     }
+    return data;
+}
+
+export function tree2listForSider(arr) {
+    const stack = [...arr];
+    const data = [];
+
+    while (stack.length) {
+        const { children, ...item } = stack.pop();
+
+        data.push(item);
+
+        if (children) {
+            for (let i = children.length - 1; i >= 0; i--) {
+                stack.push(children[i]);
+            }
+        }
+    }
+
     return data;
 }

@@ -1,3 +1,5 @@
+import { Layout } from "ant-design-vue";
+
 export default {
   grid: {
     noData: "暂无数据",
@@ -21,5 +23,11 @@ export default {
     toolManagement: "工具管理",
     modelConfiguration: "模型配置",
     empAccounts: "员工账号",
-  }
+    mulu: "目录管理",
+  },
+  header: {
+    title: "PilotAI Management",
+    exit: "退出",
+  },
+
 };

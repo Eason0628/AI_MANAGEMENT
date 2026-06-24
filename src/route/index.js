@@ -2,7 +2,7 @@ import { store } from "../store/index";
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "@/views/login/index.vue";
 import MainWindow from "@/views/layout/index.vue";
-
+import Home from "@/views/home/index.vue";
 const routes = [
     {
         path: "/",
@@ -12,6 +12,11 @@ const routes = [
     {
         path: "/login",
         component: Login,
+    },
+    {
+        path: "/home",
+        name: "home",
+        component: Home,
     }
 ]
 const router = createRouter({
@@ -21,7 +26,6 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     let token = store.getters["user/token"];
-    debugger;
     if (token) {
         if (Object.keys(store.getters["user/userInfo"]).length === 0) {
             store.dispatch("user/SetMenus").then((asyncRoutes) => {

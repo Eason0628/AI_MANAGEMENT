@@ -7,15 +7,21 @@ const routeAllPathToCompMap = import.meta.glob(`@/views/**/*.vue`);
 export default {
     namespaced: true,
     state: {
-        token: "",
+        token: localStorage.getItem(TOKEN_KEY) ? localStorage.getItem(TOKEN_KEY) : "",
         userInfo: {},
         menus: [],
         route: {},
         routes: [],
+        theme: localStorage.getItem("THEME_TYPE") ? localStorage.getItem("THEME_TYPE") : "1",
     },
     mutations: {
         setToken(state, token) {
             state.token = token;
+            if (token) localStorage.setItem(TOKEN_KEY, token);
+            else {
+                localStorage.removeItem(TOKEN_KEY);
+                location.href = "/login";
+            }
         },
         setMenus(state, val) {
             state.menus = val;
@@ -29,11 +35,19 @@ export default {
         setUserInfo(state, val) {
             state.userInfo = val;
         },
+        setTheme(state, val) {
+            state.theme = val;
+        },
 
     },
     actions: {
         SetMenus({ commit, state }) {
             return new Promise((resolve, reject) => {
+                userInfo().then((res) => {
+                    if (!res.data) return;
+                    console.log("userInfo:", JSON.stringify(res.data));
+                    commit("setUserInfo", res.data);
+                });
                 menus()
                     .then((res) => {
                         if (!res.data) return;
@@ -43,7 +57,6 @@ export default {
                         });
                         commit("setMenus", list2tree(data, "menuId", "menuParentId", "children"));
                         commit("setRoutes", data.sort((a, b) => a.sortNum - b.sortNum));
-                        console.log('data:', JSON.stringify(data));
                         data.forEach((r) => {
                             if (r.component) {
                                 try {
@@ -53,15 +66,12 @@ export default {
                                 }
                             }
                         });
+                        ("data:", JSON.stringify(data));
                         resolve(data);
                     })
                     .catch((error) => {
                         reject(error);
                     });
-                userInfo().then((res) => {
-                    if (!res.data) return;
-                    commit("setUserInfo", res.data);
-                });
             });
         },
     },
@@ -80,6 +90,9 @@ export default {
         },
         userInfo(state) {
             return state.userInfo;
+        },
+        theme(state) {
+            return state.theme;
         },
     }
 }

@@ -83,8 +83,73 @@ export default [
                         "menuWinformName": "empAccounts/index.vue",
                         "sortNum": 4,
                         "children": []
+                    },
+                    {
+                        "menuIcon": "AppleOutlined",
+                        "menuId": 5,
+                        "menuName": "menu.mulu",
+                        "menuParentId": 0,
+                        "menuType": 0,
+                        "menuUrl": "",
+                        "sortNum": 5,
+                        "children": [
+                            {
+                                "menuIcon": "FormatPainterOutlined",
+                                "menuId": 6,
+                                "menuName": "menu.fileone",
+                                "menuParentId": 5,
+                                "menuType": 0,
+                                "menuUrl": "",
+                                "sortNum": 6,
+                                "children": [
+                                    {
+                                        "menuIcon": "AlertOutlined",
+                                        "menuId": 7,
+                                        "menuName": "menu.pageone",
+                                        "menuParentId": 6,
+                                        "menuType": 1,
+                                        "menuUrl": "/menu/pageone",
+                                        "menuWinformName": "test/02.vue",
+                                        "sortNum": 7,
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "menuIcon": "FilePdfOutlined",
+                                "menuId": 8,
+                                "menuName": "menu.filetwo",
+                                "menuParentId": 5,
+                                "menuType": 0,
+                                "menuUrl": "",
+                                "sortNum": 8,
+                                "children": [
+                                    {
+                                        "menuIcon": "AuditOutlined",
+                                        "menuId": 9,
+                                        "menuName": "menu.pagethree",
+                                        "menuParentId": 8,
+                                        "menuType": 1,
+                                        "menuUrl": "/menu/pagethree",
+                                        "menuWinformName": "test/index.vue",
+                                        "sortNum": 9,
+                                        "children": []
+                                    },
+                                    {
+                                        "menuIcon": "AlertOutlined",
+                                        "menuId": 10,
+                                        "menuName": "menu.pagetwo",
+                                        "menuParentId": 8,
+                                        "menuType": 1,
+                                        "menuUrl": "/menu/pagetwo",
+                                        "menuWinformName": "test/03.vue",
+                                        "sortNum": 10,
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
                     }
-
                 ]
             };
         },
@@ -99,10 +164,10 @@ export default [
                     "success": true,
                     "data": {
                         "current_user": {
-                            "user_id": "user_001",
-                            "username": "lisi",
-                            "display_name": "李四",
-                            "roles": ["USER"],
+                            "user_id": "admin_001",
+                            "username": "admin",
+                            "display_name": "管理员",
+                            "roles": ["ADMIN"],
                             "org_unit_id": "team_a1",
                             "managed_org_unit_id": null,
                             "organization": {

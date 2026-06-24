@@ -56,7 +56,7 @@ export default {
         const store = useStore()
 
         let state = reactive({
-            imgSrc: "/images/login_logo.png",
+            imgSrc: "/images/intesim_logo.png",
             user: {
                 username: "admin",
                 password: "",
@@ -75,8 +75,6 @@ export default {
                         setCookit(state.user.username, state.user.password, 7);
                     else setCookit("", "", -1);
                     if (res.success) store.commit("user/setToken", res.data.access_token);
-                    let token = store.getters["user/token"];
-                    console.log('token', token);
                     if (router.currentRoute.value.query.redirect)
                         router.push(router.currentRoute.value.query.redirect);
                     else router.push("/");
@@ -162,8 +160,7 @@ export default {
                 margin: 0 20px;
 
                 .ant-input-affix-wrapper {
-                    // border-color: var(--primary-color);
-                    border-color: #1f9cdc;
+                    border-color: var(--primary-color);
                     border-radius: 2px;
                 }
 
@@ -182,8 +179,7 @@ export default {
 
                 .ant-input-prefix {
                     .anticon {
-                        // color: var(--primary-color);
-                        color: #1f9cdc;
+                        color: var(--primary-color);
                     }
                 }
 

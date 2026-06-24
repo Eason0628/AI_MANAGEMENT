@@ -21,5 +21,9 @@ export default {
     toolManagement: "Tool Management",
     modelConfiguration: "Model Configuration",
     empAccounts: "Employee Accounts",
+  },
+  header: {
+    title: "PilotAI Management",
+    exit: "Logout",
   }
 };
