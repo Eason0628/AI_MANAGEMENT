@@ -271,4 +271,33 @@ export default {
         }
     }
 }
+
+:deep(.ant-layout-sider-zero-width-trigger) {
+    width: 16px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    right: -16px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    border-radius: 0 16px 16px 0 !important;
+    border-top: 1px solid var(--border-color-split);
+    border-right: 1px solid var(--border-color-split);
+    border-bottom: 1px solid var(--border-color-split);
+    transition: all 0.3s;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+:deep(.ant-layout-sider-zero-width-trigger):hover {
+    color: var(--primary-color);
+}
+
+:deep(.ant-layout-sider-zero-width-trigger) .anticon {
+    transform: translate(-3px);
+    transition: all 0.3s ease-in-out;
+}
+
+.ant-layout-sider-collapsed .ant-layout-sider-zero-width-trigger .anticon {
+    transform: rotate(180deg) translateX(5px);
+}
 </style>
