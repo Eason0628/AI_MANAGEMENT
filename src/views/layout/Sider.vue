@@ -243,6 +243,7 @@ export default {
         .ant-menu-item {
             background: transparent;
 
+
             &:hover,
             &:focus {
                 color: var(--primary-color);
@@ -285,7 +286,6 @@ export default {
     border-bottom: 1px solid var(--border-color-split);
     transition: all 0.3s;
     font-size: 16px;
-    cursor: pointer;
 }
 
 :deep(.ant-layout-sider-zero-width-trigger):hover {

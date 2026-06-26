@@ -25,5 +25,18 @@ export default {
   header: {
     title: "PilotAI Management",
     exit: "Logout",
+  },
+  employeeAccounts: {
+    account: "Account",
+    username: "Username",
+    password: "Password",
+    role: "Role",
+    level: "Level",
+    button: "Create Account",
+    inputAccountCheck: "Please enter the account",
+    inputPasswordCheck: "Please enter the password",
+    inputUsernameCheck: "Please enter the username",
+    inputRoleCheck: "Please select the role",
+    inputLevelCheck: "Please select the level",
   }
 };

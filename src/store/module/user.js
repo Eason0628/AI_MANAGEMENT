@@ -45,7 +45,6 @@ export default {
             return new Promise((resolve, reject) => {
                 userInfo().then((res) => {
                     if (!res.data) return;
-                    console.log("userInfo:", JSON.stringify(res.data));
                     commit("setUserInfo", res.data);
                 });
                 menus()
